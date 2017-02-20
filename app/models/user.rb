@@ -5,6 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :boats
-
   validates :first_name, :last_name, presence: true
+
 end
