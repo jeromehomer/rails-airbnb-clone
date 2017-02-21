@@ -8,6 +8,8 @@ class BoatsController < ApplicationController
 
   # Get /boats/1
   def show
+    @boat = Boat.find(params[:id])
+    @renting = Renting.new
   end
 
   def new
