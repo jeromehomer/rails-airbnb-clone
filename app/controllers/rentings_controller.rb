@@ -16,8 +16,20 @@ class RentingsController < ApplicationController
     @renting = Renting.find(params[:id])
   end
 
+  def update
+    @renting = Renting.find(params[:id])
+    @renting.update(review_params)
+    redirect_to user_path(current_user)
+  end
+
+
+
   private
   def renting_params
     params.require(:renting).permit(:starting_date, :end_date)
+  end
+
+  def review_params
+    params.require(:renting_id).permit(:review_content, :rating)
   end
 end
