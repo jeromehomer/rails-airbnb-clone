@@ -1,6 +1,6 @@
 <h1>boats index</h1>
 
 <% @boats.each do |boat| %>
-  <h2><%= boat.name %></h2>
+  <h2><%= link_to boat.name, boat_path(boat) %></h2>
   <p><%= boat.address %></p>
 <% end %>
