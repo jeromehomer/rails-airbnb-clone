@@ -7,7 +7,7 @@
 
 <div class="container">
   <div class="booking">
-    <%= simple_form_for [@boat] do |f| %>
+    <%= simple_form_for [@boat, @renting] do |f| %>
     <%= f.text_field :starting_date, placeholder: 'Start Date', class: 'form-control', readonly: 'true' %>
     <%= f.input :end_date, placeholder: 'Start Date', class: 'form-control', readonly: 'true' %>
     <%= f.submit class: "btn btn-primary" %>
