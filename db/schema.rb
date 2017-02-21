@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 20170221103554) do
 
   create_table "boats", force: :cascade do |t|
     t.string   "name"
-    t.string   "type"
+    t.string   "kind"
     t.text     "address"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
