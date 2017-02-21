@@ -1,7 +1,7 @@
 <h1>Bonjour <%= @user.first_name %></h1>
 
 <ul>
-  <%= @rentings.each do |renting| %>
+  <% @rentings.each do |renting| %>
     <li>
       Vous avez reservé le bateau suivant: <%= renting.boat.name %>
     </li>
