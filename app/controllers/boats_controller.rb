@@ -1,5 +1,6 @@
 class BoatsController < ApplicationController
   before_action :set_boat, only: [:show, :update, :edit, :distroy]
+
   # Get /boats
   def index
     @boats = Boat.all
@@ -34,5 +35,4 @@ class BoatsController < ApplicationController
   def set_boat
     @boat = Boat.find(params[:id])
   end
-
 end
