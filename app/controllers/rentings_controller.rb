@@ -13,7 +13,7 @@ class RentingsController < ApplicationController
   end
 
   def edit
-
+    @renting = Renting.find(params[:id])
   end
 
   private

@@ -1,5 +1,5 @@
 class BoatsController < ApplicationController
-  skip_before_action :authenticate_user!, only: :show
+  # skip_before_action :authenticate_user!, only: [:show, :index]
 
   # Get /boats
   def index
