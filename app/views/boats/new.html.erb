@@ -1,0 +1,9 @@
+<%= simple_form_for(@boat) do |f| %>
+  <%= f.error_notification %>
+
+  <%= f.input :name %>
+  <%= f.input :address %>
+  <%= f.input :kind %>
+
+  <%= f.submit "Ajouter un yacht", class: "btn btn-warning" %>
+<% end %>
