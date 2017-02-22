@@ -1,5 +1,5 @@
 class BoatsController < ApplicationController
-  before_action :set_boat, only: [:show, :update, :edit, :distroy]
+  before_action :set_boat, only: [:show, :update, :edit, :destroy]
 
   # Get /boats
   def index
@@ -39,7 +39,7 @@ class BoatsController < ApplicationController
   private
 
   def boat_params
-    params.require(:boat).permit(:name, :kind, :address)
+    params.require(:boat).permit(:name, :kind, :address, photos: [])
   end
 
   def set_boat

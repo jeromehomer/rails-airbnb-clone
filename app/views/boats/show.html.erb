@@ -5,6 +5,15 @@
 <p>Propriétaire: <%= @boat.user.first_name.capitalize + " " + @boat.user.last_name.capitalize %></p>
 
 
+<div class="pictures">
+<% if @boat.photos? %>
+  <% @boat.photos.each do |photo| %>
+    <%=  cl_image_tag photo.path, width: 300, height: 200, crop: :fill %>
+    <% end %>
+  <% end %>
+ </div>
+
+
 <div class="container">
   <div class="input-daterange input-group" id="datepicker">
     <%= simple_form_for [@boat, @renting] do |f| %>
