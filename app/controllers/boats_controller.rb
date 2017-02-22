@@ -27,7 +27,6 @@ class BoatsController < ApplicationController
   end
 
   def edit
-
   end
 
   def update
@@ -39,6 +38,8 @@ class BoatsController < ApplicationController
   end
 
   def destroy
+    @boat.destroy
+    redirect_to boats_path
   end
 
   private

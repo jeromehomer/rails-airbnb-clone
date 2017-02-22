@@ -2,6 +2,9 @@
 
 <p>Port d'attache: <%= @boat.address.capitalize %></p>
 <%= link_to "Modifier", edit_boat_path(@boat) %>
+<%= link_to "Suprimer", boat_path(@boat),
+method: :delete,
+data: { confirm: "Etes vous sur?"} %>
 <p>Type de bateau: <%= @boat.kind.capitalize %></p>
 <p>Propriétaire: <%= @boat.user.first_name.capitalize + " " + @boat.user.last_name.capitalize %></p>
 
