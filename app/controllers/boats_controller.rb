@@ -8,7 +8,6 @@ class BoatsController < ApplicationController
 
   # Get /boats/1
   def show
-    @boat = Boat.find(params[:id])
     @renting = Renting.new
   end
 
@@ -27,10 +26,14 @@ class BoatsController < ApplicationController
   end
 
   def edit
-
   end
 
   def update
+    if @boat.update(boat_params)
+      redirect_to boat_path(@boat)
+    else
+      render :edit
+    end
   end
 
   def destroy
