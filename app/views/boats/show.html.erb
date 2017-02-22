@@ -1,16 +1,19 @@
 <h1>See the <%= @boat.name %></h1>
 
-<p><%= @boat.address %></p>
-<p><%= @boat.kind %></p>
-<p><%= @boat.user.first_name.capitalize + " " + @boat.user.last_name.capitalize %></p>
+<p>Port d'attache: <%= @boat.address.capitalize %></p>
+<p>Type de bateau: <%= @boat.kind.capitalize %></p>
+<p>Propriétaire: <%= @boat.user.first_name.capitalize + " " + @boat.user.last_name.capitalize %></p>
 
 
 <div class="container">
-  <div class="booking">
-    <%= simple_form_for [@boat] do |f| %>
-    <%= f.text_field :starting_date, placeholder: 'Start Date', class: 'form-control', readonly: 'true' %>
-    <%= f.input :end_date, placeholder: 'Start Date', class: 'form-control', readonly: 'true' %>
-    <%= f.submit class: "btn btn-primary" %>
+  <div class="input-daterange input-group" id="datepicker">
+    <%= simple_form_for [@boat, @renting] do |f| %>
+      <%= f.text_field :starting_date, placeholder: 'Start Date', class: 'input-md form-control', readonly: 'true' %>
+      <%= f.text_field :end_date, placeholder: 'End Date', class: 'input-sm form-control', readonly: 'true' %>
+      <%= f.submit :book, class: "btn btn-primary" %>
     <% end %>
   </div>
 </div>
+
+
+

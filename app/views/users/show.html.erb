@@ -1,10 +1,22 @@
 <h1>Bonjour <%= @user.first_name %></h1>
 
-  <div class="row">
+<ul>
+  <% @rentings.each do |renting| %>
+    <li>
+      Vous avez reservé le bateau suivant: <%= renting.boat.name %>
+    </li>
+    <li>
+      Disponible au port de: <%= renting.boat.address %>
+    </li>
+    <li>
+      A compter du: <%= renting.starting_date %>
+    </li>
+    <li>
+      Jusqu'au: <%= renting.end_date %>
+      <%= link_to "Ajouter un avis", edit_boat_renting_path(renting), class: "btn btn-primary" %>
+    </li>
+  <% end %>
+</ul>
 
 
 
-
-
-
-  </div>
