@@ -3,7 +3,11 @@ class BoatsController < ApplicationController
 
   # Get /boats
   def index
-    @boats = Boat.all
+
+    @address = params[:address]
+    @boats = Boat.select {|r| r[:address] == @address }
+    @boats = Boat.all if @address.nil?
+
   end
 
   # Get /boats/1
