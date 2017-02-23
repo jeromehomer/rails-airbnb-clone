@@ -9,9 +9,13 @@
     <input type="text" class="input-sm form-control" name="end" placeholder="quand"/>
     </div>
 
-     <%= simple_form_for :search, url: boats_path, method: :get do |f|%>
-        <%= f.input :address, label: 'Où louer' %>
-        <%= f.button :submit, 'Je trouve mon bateau', :class => "btn btn-primary btn-lg" %>
+     <%= simple_form_for :search, html: {class: 'form-horizontal' }, url: boats_path, method: :get do |f|%>
+        <div class="field">
+          <%= f.input :address, label: 'Où louer', placeholder: 'Entrez une adresse' %>
+        </div>
+        <div class="submit_button">
+          <%= f.button :submit, 'Je trouve mon bateau', :class => "btn btn-primary btn-lg" %>
+        </div>
      <% end %>
 
 
