@@ -8,20 +8,13 @@
     <span class="input-group-addon">à</span>
     <input type="text" class="input-sm form-control" name="end" placeholder="quand"/>
     </div>
-      <form action="/boats" method="get">
-            <fieldset>
-               <div class="form-group">
-                <label class="col-sm-4 control-label">
-                  <p>Où louer :</p>
-                </label>
-                <div class="col-sm-8">
-                  <input id="address" name="address"
-                         class="form-control" placeholder="quel port ?">
-                </div>
-              </div>
-            </fieldset>
-      </form>
-      <a class="btn btn-primary btn-lg">Je trouve mon bateau</a>
+
+     <%= simple_form_for :search, url: boats_path, method: :get do |f|%>
+        <%= f.input :address, label: 'Où louer' %>
+        <%= f.button :submit, 'Je trouve mon bateau', :class => "btn btn-primary btn-lg" %>
+     <% end %>
+
+
   </div>
 </div>
 
