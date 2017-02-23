@@ -1,23 +1,33 @@
-<h1>boats index</h1>
-
-<% @boats.each do |boat| %>
-  <h2><%= link_to boat.name, boat_path(boat) %></h2>
-  <p><%= boat.address %></p>
-<% end %>
-
-
 <div class="container padded">
   <div class="row">
     <% @boats.each do |boat| %>
-      <div class="col-xs-12 col-sm-4 col-lg-3">
-        <% if boat.photos? %>
-          <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path boat.photos.last.path %>');">
-          </div>
-        <% else %>
-          <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(' Image-defaut.png');">
-          </div>
-        <% end %>
-      </div>
+      <%= link_to boat do %>
+        <div class="col-xs-12 col-sm-4">
+          <% if boat.photos? %>
+            <div class="card" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path boat.photos.first.path, height: 250, width: 350, crop: :fill %>')">
+               <div class="card-category">
+                <p><%= boat.name.capitalize %></p>
+               </div>
+              <div class="card-description">
+                <p><%= boat.address %></p>
+                <p> <%= boat.kind %></p>
+              </div>
+              <div class="card-price">
+                <p><%= "12" %>€/j</p>
+              </div>
+            </div>
+          <% else %>
+            <div class="card" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= image_path hermione1.jpeg, height: 300, width: 400, crop: :fill %>')">
+              <div class="card-category">
+               <p><%= boat.name.capitalize %></p>
+              </div>
+              <div class="card-description">
+              <p><%= boat.address %></p>
+            </div>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
     <% end %>
   </div>
 </div>
