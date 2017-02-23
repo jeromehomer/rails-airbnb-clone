@@ -1,3 +1,3 @@
 $('.input-daterange').datepicker({
-    language: "fr"
+    format: "dd/mm/yyyy"
 });
