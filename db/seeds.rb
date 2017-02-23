@@ -28,7 +28,7 @@ Boat.create(
   kind: "Moteur",
   user: user1,
   photo_urls: [
-    "http://res.cloudinary.com/dip5cvxhk/image/upload/v1487759687/kww8fnaohmvcgnjstq3j.jpg"
+    "https://www.samboat.fr/assets/images/upload/annonce_14769/annonce1476957961f0c31b7d.jpeg?d=1469456140"
   ]
 )
 
@@ -78,9 +78,7 @@ Boat.create(
   kind: "Voilier",
   user: user2,
   photo_urls: [
-    "http://res.cloudinary.com/dip5cvxhk/image/upload/v1487759687/kww8fnaohmvcgnjstq3j.jpg",
-    "http://res.cloudinary.com/dip5cvxhk/image/upload/v1487759687/kww8fnaohmvcgnjstq3j.jpg",
-    "http://res.cloudinary.com/dip5cvxhk/image/upload/v1487759687/kww8fnaohmvcgnjstq3j.jpg"
+    "https://www.samboat.fr/assets/images/upload/annonce_9081/annonce908156d41902b2148.jpg?d=1456740611"
   ]
 )
 

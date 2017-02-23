@@ -6,7 +6,7 @@ class User < ApplicationRecord
 
   after_create :send_welcome_email
 
-
+  has_attachment :avatar
   has_many :boats
   has_many :users
   validates :first_name, :last_name, presence: true
