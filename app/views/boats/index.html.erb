@@ -27,7 +27,7 @@
 <div class="container">
   <div class="row">
     <% @boats.each do |boat| %>
-      <%= link_to boat do %>
+
         <div class="col-xs-12 col-sm-4">
           <div class="card" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path boat.photos.first.path, height: 250, width: 350, crop: :fill %>')">
             <div class="card-category">
@@ -40,9 +40,9 @@
             <div class="card-price">
               <p><%= boat.price %>€/j</p>
             </div>
+            <%= link_to "", boat, class: "card-link" %>
           </div>
         </div>
-      <% end %>
     <% end %>
   </div>
 </div>
