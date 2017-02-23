@@ -3,10 +3,9 @@ class BoatsController < ApplicationController
 
   # Get /boats
   def index
-    @boats = Boat.all
-    unless params[:address].blank?
-      @boats = @boats.where(address: params[:address])
-    end
+    @boats = Boat.all if params[:search].blank?
+    address = params[:search][:address]
+    @boats = Boat.select{ |boat| boat.address.downcase.include? address.downcase }
   end
 
   # Get /boats/1
