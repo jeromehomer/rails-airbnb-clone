@@ -8,25 +8,32 @@ data: { confirm: "Etes vous sur?"} %>
 <p>Type de bateau: <%= @boat.kind.capitalize %></p>
 <p>Propriétaire: <%= @boat.user.first_name.capitalize + " " + @boat.user.last_name.capitalize %></p>
 
-
-<div class="pictures">
-<% if @boat.photos? %>
-  <% @boat.photos.each do |photo| %>
-    <%=  cl_image_tag photo.path, width: 300, height: 200, crop: :fill %>
-    <% end %>
-  <% end %>
- </div>
-
-
 <div class="container">
-  <div class="input-daterange input-group" id="datepicker">
-    <%= simple_form_for [@boat, @renting] do |f| %>
-      <%= f.text_field :starting_date, placeholder: 'Start Date', class: 'input-md form-control', readonly: 'true' %>
-      <%= f.text_field :end_date, placeholder: 'End Date', class: 'input-sm form-control', readonly: 'true' %>
-      <%= f.submit :book, class: "btn btn-primary" %>
+  <div class="pictures">
+  <% if @boat.photos? %>
+    <% @boat.photos.each do |photo| %>
+      <%=  cl_image_tag photo.path, width: 300, height: 200, crop: :fill %>
+      <% end %>
     <% end %>
   </div>
 </div>
+
+
+<div class="renting text-center">
+<p> Choose your dates and embark!</p>
+  <div class="container">
+  <div class="input-daterange input-group" id="datepicker">
+    <%= simple_form_for [@boat, @renting] do |f| %>
+      <%= f.text_field :starting_date, placeholder: 'Start Date',
+      class: 'input-md form-control', readonly: 'true' %>
+      <%= f.text_field :end_date, placeholder: 'End Date',
+      class: 'input-sm form-control', readonly: 'true' %>
+      <%= f.submit :Book, class: "btn btn-primary" %>
+    <% end %>
+  </div>
+  </div>
+</div>
+
 
 
 
