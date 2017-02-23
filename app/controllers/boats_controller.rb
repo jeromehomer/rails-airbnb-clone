@@ -7,7 +7,7 @@ class BoatsController < ApplicationController
     unless params[:address].blank?
       @boats = @boats.where(address: params[:address])
     end
-    @markers = Gmaps4rails.build_markers(@boats) do |boat, marker|
+    @hash = Gmaps4rails.build_markers(@boats) do |boat, marker|
       marker.lat boat.latitude
       marker.lng boat.longitude
     end
