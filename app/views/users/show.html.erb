@@ -1,25 +1,32 @@
-<h1>Bonjour <%= @user.first_name %></h1>
+<h1>Bonjour <%= @user.first_name.capitalize %></h1>
 
-<ul>
+
+<div class="container padded">
   <% @rentings.each do |renting| %>
-    <li>
-      Vous avez reservé le bateau suivant: <%= renting.boat.name %>
-    </li>
-    <li>
-      Disponible au port de: <%= renting.boat.address %>
-    </li>
-    <li>
-      A compter du: <%= renting.starting_date %>
-    </li>
-    <li>
-      Jusqu'au: <%= renting.end_date %>
-      <%= link_to "Ajouter un avis", edit_boat_renting_path(renting), class: "btn btn-primary" %>
-    </li>
-    <li>
-      <%= cl_image_tag renting.boat.photos.first.path, height: 250, width: 350, crop: :fill %>
-    </li>
+    <div class="row">
+      <div class="col-sm-6">
+        <ul>
+          <li>
+            Vous avez reservé le bateau suivant: <%= renting.boat.name %>
+          </li>
+          <li>
+            Disponible au port de: <%= renting.boat.address %>
+          </li>
+          <li>
+            A compter du: <%= renting.starting_date %>
+          </li>
+          <li>
+            Jusqu'au: <%= renting.end_date %>
+          </li>
+          <p>
+            <%= link_to "Ajouter un avis", edit_boat_renting_path(renting), class: "btn btn-primary" %>
+          </p>
+        </ul>
+      </div>
+    <div class="col-sm-6">
+      <%= cl_image_tag renting.boat.photos.first.path, height: 250, width: 350, crop: :fill, class: "boat-pictures" %>
+    </div>
   <% end %>
-</ul>
-
+</div>
 
 
