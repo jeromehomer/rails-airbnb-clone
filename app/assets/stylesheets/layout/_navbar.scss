@@ -1,13 +1,14 @@
 /* Main class */
 .navbar-wagon {
-  background: rgb(30,60,114);
+  background: #1A2980; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to left, #1A2980 , #26D0CE); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to left, #1A2980 , #26D0CE); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   color: white;
   display: flex;
   height: 70px;
   padding: 0px 40px;
   align-items: center;
   justify-content: space-between;
-
 }
 
 .navbar-wagon.home {
@@ -51,7 +52,7 @@
 
 /* Navbar standard link */
 .navbar-wagon-link {
-  color: #616668;
+  color: white;
   font-size: 14px;
 }
 .navbar-wagon-link:hover {
@@ -65,7 +66,9 @@
   padding: 0 15px;
   border-radius: 15em;
   line-height: 30px;
-  background-color: rgb(30,60,114);
+  background: #1A2980; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to left, #1A2980 , #26D0CE); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to left, #1A2980 , #26D0CE); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   color: white;
   font-size: 14px;
   border: 2px solid white;
