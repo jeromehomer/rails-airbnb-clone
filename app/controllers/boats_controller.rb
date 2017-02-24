@@ -4,9 +4,10 @@ class BoatsController < ApplicationController
   # Get /boats
   def index
     @boats = Boat.where.not(latitude: nil, longitude: nil)
-    unless params[:address].blank?
-      @boats = @boats.where(address: params[:address])
+    unless params[:search][:address].blank?
+      @boats = @boats.where(address: params[:search][:address])
     end
+
     @hash = Gmaps4rails.build_markers(@boats) do |boat, marker|
       marker.lat boat.latitude
       marker.lng boat.longitude
