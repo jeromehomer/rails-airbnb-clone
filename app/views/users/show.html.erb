@@ -1,5 +1,6 @@
-<h1>Bonjour <%= @user.first_name.capitalize %></h1>
-
+<div>
+  <h1>Bonjour <%= @user.first_name.capitalize %></h1>
+</div>
 
 <div class="container padded">
   <% @rentings.each do |renting| %>
@@ -25,6 +26,7 @@
       </div>
     <div class="col-sm-6">
       <%= cl_image_tag renting.boat.photos.first.path, height: 250, width: 350, crop: :fill, class: "boat-pictures" %>
+    </div>
     </div>
   <% end %>
 </div>
