@@ -24,14 +24,14 @@
     </div>
     <div class="col-sm-4">
       <p> Choisissez vos dates et embarquez!</p>
-      <div class="input-daterange input-group" >
         <%= simple_form_for [@boat, @renting] do |f| %>
-          <%= f.text_field :starting_date, placeholder: 'A partir de',
-          class: 'input-md form-control' %>
-          <%= f.text_field :end_date, placeholder: 'Jusqu\'au',
-          class: 'input-sm form-control'%>
-      </div>
-        <%= f.submit "Réserver" %>
+        <div class="input-daterange" >
+          <%= f.text_field :starting_date, class: 'input-sm form-control' %>
+        </div>
+        <div class="input-daterange" >
+          <%= f.text_field :end_date, class: 'input-sm form-control'%>
+        </div>
+        <%= f.submit "Réserver", class: "btn btn-primary" %>
       <% end %>
     </div>
   </div>

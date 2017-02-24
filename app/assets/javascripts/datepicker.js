@@ -1,3 +1,5 @@
-$('.input-daterange').datepicker({
-    format: "dd/mm/yyyy"
-});
+$("input.datepicker").each(function(input) {
+  $(this).datepicker({
+    dateFormat: "dd-mm-yy",
+    altField: $(this).next()
+  })
