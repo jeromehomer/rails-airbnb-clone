@@ -1,0 +1,13 @@
+<div class="card" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path boat.photos.first.path, height: 250, width: 350, crop: :fill %>')">
+  <div class="card-category">
+    <p><%= boat.name.capitalize %></p>
+  </div>
+  <div class="card-description">
+    <p><%= boat.address %></p>
+    <p> <%= boat.kind %></p>
+  </div>
+  <div class="card-price">
+    <p><%= boat.price %>€/j</p>
+  </div>
+  <%= link_to "", boat, class: "card-link" %>
+</div>

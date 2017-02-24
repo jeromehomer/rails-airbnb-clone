@@ -25,14 +25,15 @@
     <div class="col-sm-4">
       <% if user_signed_in?%>
         <p> Choisissez vos dates et embarquez!</p>
-        <div class="input-daterange input-group" >
-        <%= simple_form_for [@boat, @renting] do |f| %>
-          <%= f.text_field :starting_date, placeholder: 'A partir de',
-          class: 'input-md form-control' %>
-          <%= f.text_field :end_date, placeholder: 'Jusqu\'au',
-          class: 'input-sm form-control'%>
-        </div>
-          <%= f.submit "Réserver" %>
+        <%= simple_form_for [@boat, @renting], html: { class: "form-inline" } do |f| %>
+          <div class="input-daterange input-group" >
+            <%= f.text_field :starting_date, placeholder: 'A partir de', class: 'input-md form-control' %>
+            <span class="input-group-addon">to</span>
+            <%= f.text_field :end_date, placeholder: 'Jusqu\'au', class: 'input-md form-control'%>
+          </div>
+          <br>
+          <br>
+          <%= f.submit "Réserver", class: "btn btn-primary btn-block" %>
         <% end %>
       <% else %>
         <%= link_to "Connectez vous pour réserver", new_user_session_path, class: "btn btn-primary"%>

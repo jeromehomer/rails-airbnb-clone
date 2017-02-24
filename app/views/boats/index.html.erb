@@ -1,28 +1,27 @@
 
 <div class="container">
-  <h1>Voici les bateaux disponibles</h1>
-  <%= link_to "Retour à la recherche", root_path, class: "btn btn-primary" %>
-</div>
+  <h1>
+    Voici les bateaux disponibles
+    <%= link_to "Retour à la recherche", root_path, class: "btn btn-primary btn-sm" %>
+  </h1>
 
-<div id="map" style="width: 62%; height: 600px; float: right;"></div>
+</div>
 
 <div class="container">
   <div class="row">
-    <% @boats.each do |boat| %>
-      <div class="col-xs-12 col-sm-4">
-        <div class="card" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path boat.photos.first.path, height: 250, width: 350, crop: :fill %>')">
-          <div class="card-category">
-            <p><%= boat.name.capitalize %></p>
-          </div>
-          <div class="card-description">
-            <p><%= boat.address %></p>
-            <p> <%= boat.kind %></p>
-          </div>
-          <div class="card-price">
-            <p><%= boat.price %>€/j</p>
-          </div>
-          <%= link_to "", boat, class: "card-link" %>
-        </div>
+    <div class="col-md-4">
+      <% @boats.first(2).each do |boat| %>
+        <%= render "boat", boat: boat %>
+      <% end %>
+    </div>
+    <div class="col-md-8">
+      <div id="map" style="width: 100%; height: 515px;"></div>
+    </div>
+  </div>
+  <div class="row">
+     <% @boats[2..-1].each do |boat| %>
+      <div class="col-sm-4">
+        <%= render "boat", boat: boat %>
       </div>
     <% end %>
   </div>
