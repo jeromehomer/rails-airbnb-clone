@@ -15,6 +15,9 @@
       Jusqu'au: <%= renting.end_date %>
       <%= link_to "Ajouter un avis", edit_boat_renting_path(renting), class: "btn btn-primary" %>
     </li>
+    <li>
+      <%= cl_image_tag renting.boat.photos.first.path, height: 250, width: 350, crop: :fill %>
+    </li>
   <% end %>
 </ul>
 
