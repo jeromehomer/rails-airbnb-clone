@@ -10,28 +10,32 @@
         </div>
       </div>
       <div class="card" >
-        <%= cl_image_tag @boat.photos.first.path, height: 250, width: 350, crop: :fill %>
+        <%= cl_image_tag @boat.photos.first.path, height: 250, width: 350, crop: :fill, class: "boat-pictures" %>
       </div>
-      <div class="boat-pictures">
+      <div >
         <ul class="list-inline">
         <% @boat.photos[0..-2].each do |photo| %>
           <li>
-            <%= cl_image_tag photo.path, height: 150, width: 200, crop: :fill %>
+            <%= cl_image_tag photo.path, height: 150, width: 200, crop: :fill, class: "boat-pictures" %>
           </li>
           <% end %>
         </ul>
       </div>
     </div>
     <div class="col-sm-4">
-      <p> Choisissez vos dates et embarquez!</p>
-      <div class="input-daterange input-group" >
+      <% if user_signed_in?%>
+        <p> Choisissez vos dates et embarquez!</p>
+        <div class="input-daterange input-group" >
         <%= simple_form_for [@boat, @renting] do |f| %>
           <%= f.text_field :starting_date, placeholder: 'A partir de',
           class: 'input-md form-control' %>
           <%= f.text_field :end_date, placeholder: 'Jusqu\'au',
           class: 'input-sm form-control'%>
-      </div>
-        <%= f.submit "Réserver" %>
+        </div>
+          <%= f.submit "Réserver" %>
+        <% end %>
+      <% else %>
+        <%= link_to "Connectez vous pour réserver", new_user_session_path, class: "btn btn-primary"%>
       <% end %>
     </div>
   </div>

@@ -7,7 +7,7 @@ class RentingsController < ApplicationController
     @renting.user = current_user
     @renting.boat = @boat
     if @renting.save
-      redirect_to boat_path(@boat)
+      redirect_to user_path(current_user)
     else
       render 'boats/show'
     end
