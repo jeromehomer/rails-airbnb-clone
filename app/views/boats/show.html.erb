@@ -1,15 +1,16 @@
 <div class="container padded">
   <div class="row">
-    <div class="col-sm-8">
+    <div class="col-sm-8 boat-space text-left">
       <div class="boat-description">
         <h1> <%= @boat.name %></h1>
         <p> Port d'attache: <%= @boat.address.capitalize %></p>
-        <p> Type de bateau: <%= @boat.kind.capitalize %></p>
+        <p> Type de bateau: <%= @boat.kind.capitalize  %></p>
         <div id="price">
-          <p> A partir de: <%= @boat.price %> €/jour</p>
+          <%= @boat.price %> €/jour
         </div>
       </div>
-      <div class="card" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path @boat.photos.first.path, height: 250, width: 350, crop: :fill %>')">
+      <div class="card" >
+        <%= cl_image_tag @boat.photos.first.path, height: 250, width: 350, crop: :fill %>
       </div>
       <div class="boat-pictures">
         <ul class="list-inline">
@@ -21,7 +22,7 @@
         </ul>
       </div>
     </div>
-    <div class="col-sm-4" class="renting-form">
+    <div class="col-sm-4">
       <p> Choisissez vos dates et embarquez!</p>
       <div class="input-daterange input-group" >
         <%= simple_form_for [@boat, @renting] do |f| %>
@@ -30,8 +31,7 @@
           <%= f.text_field :end_date, placeholder: 'Jusqu\'au',
           class: 'input-sm form-control'%>
       </div>
-        <p>prix total</p> <%=  %>
-        <%= f.submit "Réserver", class: 'btn btn-primary' %>
+        <%= f.submit "Réserver" %>
       <% end %>
     </div>
   </div>

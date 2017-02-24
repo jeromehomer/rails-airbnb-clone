@@ -1,3 +1,4 @@
+
 <div class="container">
   <h1>Voici les bateaux disponibles</h1>
   <%= link_to "Retour à la recherche", root_path, class: "btn btn-primary" %>
@@ -8,22 +9,21 @@
 <div class="container">
   <div class="row">
     <% @boats.each do |boat| %>
-      <%= link_to boat do %>
-        <div class="col-xs-12 col-sm-4">
-          <div class="card" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path boat.photos.first.path, height: 250, width: 350, crop: :fill %>')">
-            <div class="card-category">
-              <p><%= boat.name.capitalize %></p>
-            </div>
-            <div class="card-description">
-              <p><%= boat.address %></p>
-              <p> <%= boat.kind %></p>
-            </div>
-            <div class="card-price">
-              <p><%= boat.price %>€/j</p>
-            </div>
+      <div class="col-xs-12 col-sm-4">
+        <div class="card" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path boat.photos.first.path, height: 250, width: 350, crop: :fill %>')">
+          <div class="card-category">
+            <p><%= boat.name.capitalize %></p>
           </div>
+          <div class="card-description">
+            <p><%= boat.address %></p>
+            <p> <%= boat.kind %></p>
+          </div>
+          <div class="card-price">
+            <p><%= boat.price %>€/j</p>
+          </div>
+          <%= link_to "", boat, class: "card-link" %>
         </div>
-      <% end %>
+      </div>
     <% end %>
   </div>
 </div>
